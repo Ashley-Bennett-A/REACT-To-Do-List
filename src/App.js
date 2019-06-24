@@ -24,13 +24,15 @@ class App extends React.Component {
 
   add = e => {
     e.preventDefault();
-    let newItem = this.state.value;
-    let todo = this.state.todo;
-    todo.push(newItem);
-    this.setState({
-      todo: todo,
-      value: ""
-    });
+    if (this.state.value) {
+      let newItem = this.state.value;
+      let todo = this.state.todo;
+      todo.push(newItem);
+      this.setState({
+        todo: todo,
+        value: ""
+      });
+    }
   };
 
   value = e => {
