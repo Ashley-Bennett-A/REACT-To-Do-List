@@ -17,12 +17,21 @@ class App extends React.Component {
     });
     this.setState({ todo: [...newToDo] });
   };
+
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+  };
   render() {
     return (
       <div className="App">
         <h1>Ashley's To-Do list</h1>
         <form>
-          <input type="text" placeholder="To-do..." />
+          <input
+            type="text"
+            placeholder="To-do..."
+            onChange={this.handleChange}
+          />
+          <input type="submit" name="" id="" />
         </form>
         {this.state.todo.map(item => (
           <li onClick={this.removeItem} key={item}>
