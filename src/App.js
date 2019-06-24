@@ -33,15 +33,20 @@ class App extends React.Component {
     });
   };
 
+  value = e => {
+    e.target.value = "";
+  };
+
   render() {
     return (
       <div className="App">
-        <h1>Ashley's To-Do list</h1>
+        <h1>Ashley's React To-Do list</h1>
         <form>
           <input
             type="text"
             placeholder="To-do..."
             onChange={this.handleChange}
+            onFocus={this.value}
           />
           <input type="submit" onClick={this.add} />
         </form>
