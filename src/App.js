@@ -21,6 +21,18 @@ class App extends React.Component {
   handleChange = e => {
     this.setState({ value: e.target.value });
   };
+
+  add = e => {
+    e.preventDefault();
+    let newItem = this.state.value;
+    let todo = this.state.todo;
+    todo.push(newItem);
+    this.setState({
+      todo: todo,
+      value: ""
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -31,7 +43,7 @@ class App extends React.Component {
             placeholder="To-do..."
             onChange={this.handleChange}
           />
-          <input type="submit" name="" id="" />
+          <input type="submit" onClick={this.add} />
         </form>
         {this.state.todo.map(item => (
           <li onClick={this.removeItem} key={item}>
